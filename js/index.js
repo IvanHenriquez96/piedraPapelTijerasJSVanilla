@@ -106,6 +106,10 @@ const validaNombre = (nombre) => {
         errors.push({ error: true, desc: "El Campo no puede estar vacío" });
     }
 
+    if (nombre.length > 8) {
+        errors.push({ error: true, desc: "Máximo 8 carácteres!" });
+    }
+
     if (errors.length == 0) {
         cambiarNombre(nombre);
 
@@ -115,7 +119,7 @@ const validaNombre = (nombre) => {
 
     }else{
         errors.forEach(error => {
-            div_errores.innerHTML = `<p class="error">-${error.desc}</p>`;
+            div_errores.innerHTML = `<p class="error m-2">-${error.desc}</p>`;
         });
     }
 
