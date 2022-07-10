@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body{
+    font-family: 'Press Start 2P', cursive;
+}
+
+#tablero_juego{
+    height:30vh;
+    overflow : scroll;
+    overflow-x : hidden;
+}
+
+.ganador{
+    color: green;
+}
+
+.perdedor{
+    color: red;
+}
+
+.btn_opcion{
+    //margin:auto;
+}
+
+.imagen_trofeo{
+    width: 10vh;
+}
+
+.error{
+    color: red;
+}
