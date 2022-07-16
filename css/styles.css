@@ -5,7 +5,7 @@ body{
 }
 
 #tablero_juego{
-    height:30vh;
+    height:20vh;
     overflow : scroll;
     overflow-x : hidden;
 }
@@ -28,4 +28,29 @@ body{
 
 .error{
     color: red;
+}
+
+#img_jugador{
+    width: 20vw;
+    height: 20vw;
+}
+
+#img_maquina{
+    width: 20vw;
+    height: 20vw;
+}
+
+#nombre_jugador{
+    font-size: 3vw;
+}
+
+#nombre_maquina{
+    font-size: 3vw;
+}
+
+#tablero_puntaje{
+    border-radius: 20px;
+    background-image: url("../img/a295.png");
+    background-repeat: no-repeat; 
+    background-size: cover;
 }

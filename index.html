@@ -14,37 +14,42 @@
         <h1 class="text-center my-5">PIEDRA, PAPEL O TIJERAS!</h1>
 
         <div id="tablero_puntaje" class="border p-3">
-            <h2 class="text-center">PUNTAJE</h2>
 
-            <div class="d-flex justify-content-center">
+            <!-- <h2 class="text-center">PUNTAJE</h2> -->
 
-                <!-- Button trigger modal -->
-   
-
+            <div class="d-flex justify-content-around justify-content-sm-around">
+                <div class="text-center">
+                    <img id="img_jugador" src="./img/FF1.png" alt="">
+                    <h2 id="nombre_jugador">NACHITO</h2> 
+                    <h2 id="puntaje_jugador"> 0 </h2>
+                </div>
                 
 
-                <div class="mx-2" id="nombre_jugador"> TÚ </div>
-                <div class="mx-2" id="puntaje_jugador"> 0 </div>
-                <div>:</div>
-                <div class="mx-2" id="puntaje_maquina"> 0 </div>
-                <div class="mx-2" id="nombre_maquina"> Máquina </div>
+                <h2 class="my-auto">VS</h2>
+
+                <div class="text-center">
+                    <img id="img_maquina" src="./img/enemigo.png" alt="">
+                    <h2 id="nombre_maquina">CPU</h2>
+                    <h2 id="puntaje_maquina"> 0 </h2>
+
+                </div>
             </div>
            
         </div>
 
-        <div id="tablero_juego" class="border mt-3 p-3">
+        <div id="tablero_juego" class="border mt-3 p-3 rounded">
             <ul id="lista_resultados">
                 <li>Resultados:</li>
             </ul>
         </div>
 
-        <div id="botones" class=" d-flex justify-content-around  border mt-3 p-3">
+        <div id="botones" class=" d-flex justify-content-around  border mt-3 p-3 rounded">
            <button id="boton_piedra" tipo="piedra" class="btn btn-primary btn-sm mx-1 btn_opcion">PIEDRA &#9994;</button>
            <button id="boton_papel" tipo="papel" class="btn btn-primary btn-sm mx-1 btn_opcion">PAPEL &#9995;</button>
            <button id="boton_tijeras" tipo="tijeras" class="btn btn-primary btn-sm mx-1 btn_opcion">TIJERAS &#9996;</button>
         </div>
 
-        <div class="border mt-3 p-3 text-center">
+        <div class="border mt-3 p-3 text-center rounded">
             <h2>LOGROS!</h2>
 
             <div id="logros" class="d-flex"></div>
