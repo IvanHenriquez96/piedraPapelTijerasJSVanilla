@@ -235,7 +235,7 @@ const cargaPuntaje = () => {
 const hacerJugada = (e) => {
 
  
-    console.log('han pasado 3 segundos');
+    // console.log('han pasado 3 segundos');
 
     let tipo = e.target.getAttribute('tipo');
     let opcion_maquina = opciones_maquina[Math.floor(Math.random() * opciones_maquina.length)];
