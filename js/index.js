@@ -47,9 +47,8 @@ let emojis = {
 //Inicialización de datos, verifica LocalStorage
 
 const inicializar = () => {
-    console.log(miStorage);
 
-
+    // console.log(miStorage);
     //Existen resultados en la sesión?
     if (miStorage.getItem("resultados") !== null) {
         resultados = JSON.parse(miStorage.getItem("resultados"));
@@ -84,7 +83,7 @@ const inicializar = () => {
 //AddEventsListeners
 botones.forEach(boton => {
     boton.addEventListener('click', (e) => {
-            hacerJugada(e);  
+        hacerJugada(e);
     });
 });
 
@@ -94,8 +93,33 @@ btn_cambiar_nombre.addEventListener('click', (e) => {
 
 
 document.querySelector('#resetear_juego').addEventListener('click', (e) => {
-    miStorage.clear();
-    location.reload();
+
+    Swal.fire({
+        title: 'Cuidado!',
+        text: 'Estas a punto de borrar tu progreso!',
+        icon: 'warning',
+        confirmButtonText: 'Borrar'
+    })
+
+
+    Swal.fire({
+        title: 'Cuidado!',
+        text: 'Estas a punto de borrar tu progreso!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Borrar',
+        cancelButtonText: 'Salir'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            miStorage.clear();
+            location.reload();
+        }
+    })
+
+
+
 });
 
 
@@ -123,7 +147,7 @@ const validaNombre = (nombre) => {
         let modal = bootstrap.Modal.getInstance(exampleModal);
         modal.hide();
 
-    }else{
+    } else {
         errors.forEach(error => {
             div_errores.innerHTML = `<p class="error m-2">-${error.desc}</p>`;
         });
@@ -236,9 +260,6 @@ const cargaPuntaje = () => {
 
 const hacerJugada = (e) => {
 
-  
- 
-    console.log('han pasado 3 segundos');
 
     let tipo = e.target.getAttribute('tipo');
     let opcion_maquina = opciones_maquina[Math.floor(Math.random() * opciones_maquina.length)];
@@ -270,17 +291,16 @@ const hacerJugada = (e) => {
     resultados.push(datos_resultado);
     miStorage.setItem("resultados", JSON.stringify(resultados));
 
-    
+
     escribeResultados(datos_resultado);
 
     //Verificar Trofeo id 2
     if (!logros[1].ganado) {
-        console.log((puntaje_jugador - puntaje_maquina));
 
         if ((puntaje_jugador - puntaje_maquina) >= 5) {
             conseguirLogro(2);
         }
-        
+
     }
 }
 
