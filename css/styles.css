@@ -2,6 +2,10 @@
 
 body{
     font-family: 'Press Start 2P', cursive;
+    background-image: url("../img/fondo.svg");
+    background-repeat: no-repeat; 
+    background-size: cover;
+
 }
 
 #tablero_juego{
@@ -24,6 +28,7 @@ body{
 
 .imagen_trofeo{
     width: 10vh;
+    height: 10vh;
 }
 
 .error{

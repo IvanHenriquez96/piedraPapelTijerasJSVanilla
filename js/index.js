@@ -21,18 +21,24 @@ let errors = [];
 let logros = [
     {
         id: 1,
-        nombre: 'Que buen gusto!',
+        nombre: 'BUEN GUSTO!',
         desc: 'Cambia tu nombre de jugador por primera vez!',
         ganado: false
     },
 
-    // {
-    //     id: 2,
-    //     nombre: 'Suerte es mi segundo nombre',
-    //     desc: 'Supera por 5 puntos a la máquina',
-    //     ganado: false
-    // },
+    {
+        id: 2,
+        nombre: 'SUERTE ES MI SEGUNDO NOMBRE',
+        desc: 'Supera por 5 puntos a la CPU',
+        ganado: false
+    },
 ];
+
+let emojis = {
+    piedra: "9994",
+    papel: "9995",
+    tijeras: "9996"
+}
 
 
 
@@ -78,11 +84,7 @@ const inicializar = () => {
 //AddEventsListeners
 botones.forEach(boton => {
     boton.addEventListener('click', (e) => {
-        hacerJugada(e);
-
-        // setTimeout(() => {
-        //     hacerJugada(e);
-        // }, 3000);
+            hacerJugada(e);  
     });
 });
 
@@ -184,7 +186,7 @@ const cargarLogros = () => {
             ruta_img = "./img/logro-removebg-preview.png";
         }
 
-        div_logro.innerHTML = `<img src="${ruta_img}" alt="" class="imagen_trofeo" data-bs-toggle="tooltip" data-bs-placement="top"
+        div_logro.innerHTML = `<img src="${ruta_img}" alt="" class="imagen_trofeo bg-light" data-bs-toggle="tooltip" data-bs-placement="top"
         data-bs-custom-class="custom-tooltip"
         title="${logro.nombre} - ${logro.desc}">`;
 
@@ -197,7 +199,7 @@ const cargarLogros = () => {
 const escribeResultados = ({ resultado, opcion_jugador, opcion_maquina }) => {
     //Crea el nodo
     let nodo_li = document.createElement('li');
-    nodo_li.textContent = `${resultado}! Haz hecho ${opcion_jugador} y la máquina ha hecho ${opcion_maquina}`;
+    nodo_li.textContent = `${resultado}! ${String.fromCodePoint(parseInt(emojis[opcion_jugador]))} VS ${String.fromCodePoint(parseInt(emojis[opcion_maquina]))}`;
 
     if (resultado == 'Ganaste') {
         nodo_li.classList.add('ganador');
@@ -234,8 +236,9 @@ const cargaPuntaje = () => {
 
 const hacerJugada = (e) => {
 
+  
  
-    // console.log('han pasado 3 segundos');
+    console.log('han pasado 3 segundos');
 
     let tipo = e.target.getAttribute('tipo');
     let opcion_maquina = opciones_maquina[Math.floor(Math.random() * opciones_maquina.length)];
@@ -248,7 +251,6 @@ const hacerJugada = (e) => {
 
 
     if (tipo == 'piedra') {
-        // opcion_maquina == 'tijeras' ? res = 'Ganaste' : res = 'Perdiste';
         opcion_maquina == 'tijeras' ? datos_resultado.resultado = 'Ganaste' : datos_resultado.resultado = 'Perdiste';
     }
 
@@ -268,7 +270,18 @@ const hacerJugada = (e) => {
     resultados.push(datos_resultado);
     miStorage.setItem("resultados", JSON.stringify(resultados));
 
+    
     escribeResultados(datos_resultado);
+
+    //Verificar Trofeo id 2
+    if (!logros[1].ganado) {
+        console.log((puntaje_jugador - puntaje_maquina));
+
+        if ((puntaje_jugador - puntaje_maquina) >= 5) {
+            conseguirLogro(2);
+        }
+        
+    }
 }
 
 
