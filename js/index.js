@@ -94,9 +94,6 @@ btn_cambiar_nombre.addEventListener('click', (e) => {
 
 document.querySelector('#resetear_juego').addEventListener('click', (e) => {
 
-  
-
-
     Swal.fire({
         title: 'Cuidado!',
         text: 'Estas a punto de borrar tu progreso!',
@@ -112,8 +109,6 @@ document.querySelector('#resetear_juego').addEventListener('click', (e) => {
             location.reload();
         }
     })
-
-
 
 });
 
