@@ -94,12 +94,7 @@ btn_cambiar_nombre.addEventListener('click', (e) => {
 
 document.querySelector('#resetear_juego').addEventListener('click', (e) => {
 
-    Swal.fire({
-        title: 'Cuidado!',
-        text: 'Estas a punto de borrar tu progreso!',
-        icon: 'warning',
-        confirmButtonText: 'Borrar'
-    })
+  
 
 
     Swal.fire({
@@ -110,7 +105,7 @@ document.querySelector('#resetear_juego').addEventListener('click', (e) => {
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Borrar',
-        cancelButtonText: 'Salir'
+        cancelButtonText: 'Cancelar'
     }).then((result) => {
         if (result.isConfirmed) {
             miStorage.clear();
